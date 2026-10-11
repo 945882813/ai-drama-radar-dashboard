@@ -1,19 +1,89 @@
 {
-  "updated": "2026-10-11",
-  "version": "v0.5.0",
-  "ranking": [
+  "overall": [
     {
+      "date": "2026-10-11",
+      "title": "Mock AI Drama",
+      "platform": "test",
       "rank": 1,
-      "title": "Example AI Drama",
-      "drama_id": "example-ai-drama-001",
-      "platforms": ["bilibili"],
-      "scores": {
-        "heat_score": 0,
-        "audience_score": 0,
-        "growth_score": 0,
-        "lifecycle_score": 0,
-        "ai_drama_score": 0
-      }
+      "heat_score": 100000,
+      "category": "AI短剧",
+      "views": 100000,
+      "likes": 1000,
+      "comments": 100,
+      "producer": "test",
+      "source_url": null
+    },
+    {
+      "date": "2026-10-11",
+      "title": "Bilibili AI Original Demo",
+      "platform": "bilibili",
+      "rank": 1,
+      "heat_score": 0,
+      "category": "AI原创动画",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "producer": "unknown",
+      "source_url": null,
+      "potential_score": 0.0
+    }
+  ],
+  "original": [
+    {
+      "date": "2026-10-11",
+      "title": "Mock AI Drama",
+      "platform": "test",
+      "rank": 1,
+      "heat_score": 100000,
+      "category": "AI短剧",
+      "views": 100000,
+      "likes": 1000,
+      "comments": 100,
+      "producer": "test",
+      "source_url": null
+    },
+    {
+      "date": "2026-10-11",
+      "title": "Bilibili AI Original Demo",
+      "platform": "bilibili",
+      "rank": 1,
+      "heat_score": 0,
+      "category": "AI原创动画",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "producer": "unknown",
+      "source_url": null,
+      "potential_score": 0.0
+    }
+  ],
+  "rising": [
+    {
+      "date": "2026-10-11",
+      "title": "Mock AI Drama",
+      "platform": "test",
+      "rank": 1,
+      "heat_score": 100000,
+      "category": "AI短剧",
+      "views": 100000,
+      "likes": 1000,
+      "comments": 100,
+      "producer": "test",
+      "source_url": null
+    },
+    {
+      "date": "2026-10-11",
+      "title": "Bilibili AI Original Demo",
+      "platform": "bilibili",
+      "rank": 1,
+      "heat_score": 0,
+      "category": "AI原创动画",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "producer": "unknown",
+      "source_url": null,
+      "potential_score": 0.0
     }
   ]
 }
