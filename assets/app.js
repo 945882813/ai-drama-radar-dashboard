@@ -1,25 +1,45 @@
-fetch('data/ranking.json')
-.then(r=>r.json())
-.then(data=>{
- const rows=data.rankings || data.items || data.overall || [];
- const summary=document.querySelector('#summary');
- const cards=document.querySelector('#cards');
- const avg=data.summary?.average_score || 0;
- summary.innerHTML=`<div class="panel"><h3>Radar Summary</h3><p>Total Signals: ${data.summary?.total || rows.length}</p><p>Average Score: ${avg}</p></div>`;
- rows.slice(0,10).forEach((item,i)=>{
-  const score=item.score_v2 || item.ai_drama_score_v2 || item.score || 0;
-  const dims=item.dimensions || {};
-  const move=item.movement || item.change || {};
-  cards.innerHTML += `
-  <article class="card">
-   <h3>#${item.rank || i+1} ${item.title || item.name || ''}</h3>
-   <div class="score">${score}</div>
-   <p>🔥 Heat ${dims.heat || 0}</p>
-   <p>🚀 Virality ${dims.virality || 0}</p>
-   <p>📈 Trend ${dims.trend || 0}</p>
-   <p>⚠ Risk ${dims.risk || 0}</p>
-   <p>${move.direction || ''} ${move.delta || move.change || ''}</p>
-  </article>`;
- });
-})
-.catch(err=>console.log(err));
+async function loadDashboard(){
+  const summary=document.querySelector('#summary');
+  const cards=document.querySelector('#cards');
+
+  try {
+    const response = await fetch('data/ranking.json?v=' + Date.now());
+    const data = await response.json();
+
+    const rows = data.items || data.rankings || data.overall || [];
+    const total = data.count ?? rows.length;
+
+    summary.innerHTML = `
+      <div class="panel">
+        <h3>Radar Summary</h3>
+        <p>Total Signals: ${total}</p>
+        <p>Schema: ${data.schema || 'legacy'}</p>
+      </div>`;
+
+    if (!rows.length) {
+      cards.innerHTML = '<div class="panel">No ranking data available.</div>';
+      return;
+    }
+
+    cards.innerHTML = rows.slice(0,10).map((item,index)=>{
+      const score=item.ai_drama_score_v2 ?? item.score_v2 ?? item.score ?? 0;
+      const dims=item.dimensions || {};
+
+      return `
+      <article class="card">
+        <h3>#${item.rank || index+1} ${item.title || item.name || 'Untitled'}</h3>
+        <div class="score">${score}</div>
+        <p>🔥 Heat ${dims.heat ?? item.heat_score ?? 0}</p>
+        <p>🚀 Virality ${dims.virality ?? 0}</p>
+        <p>📈 Trend ${dims.trend ?? 0}</p>
+        <p>⚠ Risk ${dims.risk ?? 0}</p>
+      </article>`;
+    }).join('');
+
+  } catch(error) {
+    summary.innerHTML = `<div class="panel">Dashboard loading error: ${error.message}</div>`;
+    console.error(error);
+  }
+}
+
+loadDashboard();
