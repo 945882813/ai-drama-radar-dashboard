@@ -21,8 +21,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/configure-pages@v5
+
+      - name: Verify dashboard publish root
+        run: |
+          echo "Checking Pages content root"
+          test -f index.html
+          test -d assets
+          test -d data
+          test -f data/ranking.json
+          echo "Pages root OK"
+          find . -maxdepth 2 -type f | sort
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+
       - uses: actions/deploy-pages@v4
