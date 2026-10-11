@@ -14,14 +14,40 @@
       "comments": 100,
       "producer": "test",
       "source_url": null,
-      "ai_drama_score_v2": 0,
+      "signals": {
+        "platform": {
+          "views": 100000
+        },
+        "social": {
+          "likes": 1000,
+          "comments": 100,
+          "shares": 0
+        },
+        "growth": {
+          "daily_growth": 0
+        },
+        "creator": {
+          "influence": 50
+        },
+        "content": {
+          "quality": 70
+        }
+      },
+      "metrics": {
+        "platform_heat": 100,
+        "social_spread": 10.0,
+        "content_quality": 70.0,
+        "creator_influence": 50.0,
+        "growth_trend": 0.0
+      },
+      "ai_drama_score_v2": 54.0,
       "score_grade": "C"
     },
     {
       "date": "2026-10-11",
       "title": "Bilibili AI Original Demo",
       "platform": "bilibili",
-      "rank": 1,
+      "rank": 2,
       "heat_score": 0,
       "category": "AI原创动画",
       "views": 0,
@@ -29,7 +55,33 @@
       "comments": 0,
       "producer": "unknown",
       "source_url": null,
-      "ai_drama_score_v2": 0,
+      "signals": {
+        "platform": {
+          "views": 0
+        },
+        "social": {
+          "likes": 0,
+          "comments": 0,
+          "shares": 0
+        },
+        "growth": {
+          "daily_growth": 0
+        },
+        "creator": {
+          "influence": 50
+        },
+        "content": {
+          "quality": 70
+        }
+      },
+      "metrics": {
+        "platform_heat": 0,
+        "social_spread": 0,
+        "content_quality": 70.0,
+        "creator_influence": 50.0,
+        "growth_trend": 0.0
+      },
+      "ai_drama_score_v2": 21.5,
       "score_grade": "C"
     }
   ]
